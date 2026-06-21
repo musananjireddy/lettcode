@@ -18,7 +18,7 @@ public:
         while(i<=j){
             int mid = i+(j-i)/2;
             if(possible(piles,h,mid)){
-                ans=mid;
+                ans = min(ans,mid);
                 j = mid-1;
             }
             else{
