@@ -7,14 +7,14 @@ public:
             freq[text[i]-'a']++;
         }
         int count=0;
-        for(int i=0;i<1572;i++){
-            if(freq['b'-'a']>0 && freq['a'-'a']>0 && freq['l'-'a']>1 && freq['o'-'a']>1 &&freq['n'-'a']>0){
+        while(true){
+            if(freq[1]>=1&& freq[0]>=1 && freq[11]>=2 && freq[14]>=2 &&freq[13]>=1){
                 count++;
-                freq['b'-'a']--;
-                freq['a'-'a']--;
-                freq['l'-'a']-=2;
-                freq['o'-'a']-=2;
-                freq['n'-'a']--;
+                freq[1]--;
+                freq[0]--;
+                freq[11]-=2;
+                freq[14]-=2;
+                freq[13]--;
         }
         else{
             break;
