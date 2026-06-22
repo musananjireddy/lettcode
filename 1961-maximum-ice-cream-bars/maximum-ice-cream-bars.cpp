@@ -27,6 +27,9 @@ public:
             if(sum<=coins){
                 count++;
             }
+            else{
+                break;
+            }
 
         }
         return count;
