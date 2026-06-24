@@ -6,15 +6,12 @@ public:
         long long good=0;
         unordered_map<int,int>mp;
         for(int i=0;i<n;i++){
-            mp[nums[i]-i]++;
-        }
-        for(auto [num,count]:mp){
-            if(count>1){
-                good+= (long long)count*(count-1)/2;
-
-            }
+            long long key=nums[i]-i;
+            good+=mp[key];
+            mp[key]++;
         }
         long long ans = total-good;
+       
            
             
         return ans;
