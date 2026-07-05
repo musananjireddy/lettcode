@@ -9,7 +9,7 @@ public:
         for(int j=0;j<n;j++){
             freq[s[j]-'A']++;
             max_freq=max(max_freq,freq[s[j]-'A']);
-            while((j-i+1)-max_freq>k){
+            if(j-i+1 - max_freq>k){
                 freq[s[i]-'A']--;
                 i++;
             }
