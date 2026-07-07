@@ -1,24 +1,28 @@
 class Solution {
 public:
     long long sumAndMultiply(int n) {
-        if(n==0){
-            return 0;
-        }
-        string res = to_string(n);
-        string ans="";
-        for(int i=0;i<res.size();i++){
-            if(res[i]!='0'){
-                ans+=res[i];
+        vector<int>ans;
+        int rev=0;
+        while(n>0){
+            int digit = n%10;
+            if(digit!=0){
+                ans.push_back(digit);
             }
-        }
-        long long  sum=0;
-        for(int i=0;i<ans.size();i++){
-            sum+=ans[i]-'0';
+            n= n/10;
+
 
         }
-        int y = stoi(ans);
-        long long sol = sum*y;
-        return sol;
+        reverse(ans.begin(),ans.end());
+        long long res=0;
+        long long sum=0;
+        int p = ans.size();
+        for(int i=0;i<p;i++){
+            sum=sum+ans[i];
+            res = res*10+ans[i];
+
+        }
+        return res*sum;
+        
         
     }
 };
