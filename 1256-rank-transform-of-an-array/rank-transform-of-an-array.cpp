@@ -7,8 +7,8 @@ public:
         set<int>uniq;
         for(int a:temp){
             if(uniq.find(a)==uniq.end()){
-                res.push_back(a);
                 uniq.insert(a);
+                res.push_back(a);
 	    }
         }
         map<int,int>mp;
