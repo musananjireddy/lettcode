@@ -3,22 +3,17 @@ public:
     vector<int> arrayRankTransform(vector<int>& arr) {
         vector<int>temp = arr;
         sort(temp.begin(),temp.end());
-        vector<int>res;
-        set<int>uniq;
-        for(int a:temp){
-            if(uniq.find(a)==uniq.end()){
-                uniq.insert(a);
-                res.push_back(a);
-	    }
-        }
-        map<int,int>mp;
-        for(int i=0;i<res.size();i++){
-            mp[res[i]]=i;
-    
+        unordered_map<int,int>mp;
+        int rank=1;
+        for(int x:temp){
+            if(mp.find(x)==mp.end()){
+                mp[x]=rank;
+                rank++;
+            }
         }
         vector<int>ans;
         for(int x:arr){
-            ans.push_back(mp[x]+1);
+            ans.push_back(mp[x]);
         }
         return ans;
         
