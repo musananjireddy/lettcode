@@ -3,7 +3,7 @@ public:
     vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) {
         int n  = grid.size();
         int m = grid[0].size();
-        if(n==1 && m==1){
+        if(k==0){
             return grid;
         }
         vector<vector<int>>mat(n,vector<int>(m));
