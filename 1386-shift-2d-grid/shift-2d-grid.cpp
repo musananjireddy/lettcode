@@ -6,25 +6,24 @@ public:
         if(k==0){
             return grid;
         }
-        vector<vector<int>>mat(n,vector<int>(m));
-        for(int p=0;p<k;p++){
-            for(int i=0;i<n;i++){
-                for(int j=0;j<m;j++){
-                    if(i!=n-1 && j==m-1){
-                        mat[i+1][0]=grid[i][j];
-                    }
-                    else if(i==n-1 && j ==m-1){
-                        mat[0][0]=grid[i][j];
-                    }
-                    else{
-                        mat[i][j+1]=grid[i][j];
-                    }
-                }
+        vector<int>v;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                v.push_back(grid[i][j]);
             }
-            grid = mat;
         }
-        return mat;
-
+        k = k%(m*n);
+        reverse(v.begin(),v.end());
+        reverse(v.begin(),v.begin()+k);
+        reverse(v.begin()+k,v.end());
+        int p=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                grid[i][j]=v[p];
+                p++;
+            }
+        }
+        return grid;
         
     }
 };
