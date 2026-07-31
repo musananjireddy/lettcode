@@ -2,19 +2,14 @@ class Solution {
 public:
     int minimumPushes(string word) {
     int  n =word.size();
-	unordered_map<char,int>mp;
+	vector<int>mp(26,0);
 	for(char c:word){
-	    mp[c]++;
+	    mp[c-'a']++;
 	}
-	vector<pair<int,char>>ans;
-	for(auto &x:mp){
-	    ans.push_back({x.second,x.first});
-	    
-	}
-	sort(ans.rbegin(),ans.rend());
+	sort(mp.rbegin(),mp.rend());
     int res=0;
-    for(int i=0;i<ans.size();i++){
-        res+=(i/8+1)*ans[i].first;
+    for(int i=0;i<26;i++){
+        res+=(i/8+1)*mp[i];
 
     }
     return res;
