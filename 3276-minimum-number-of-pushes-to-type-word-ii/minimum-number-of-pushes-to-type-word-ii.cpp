@@ -11,12 +11,7 @@ public:
 	    ans.push_back({x.second,x.first});
 	    
 	}
-	sort(ans.begin(),ans.end(),[](pair<int,char>&a,pair<int,char>&b){
-	    if(a.first!=b.first){
-	        return a.first>b.first;
-	    }
-	    return a.second<b.second;
-	});
+	sort(ans.rbegin(),ans.rend());
     int res=0;
     for(int i=0;i<ans.size();i++){
         res+=(i/8+1)*ans[i].first;
