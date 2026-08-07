@@ -10,7 +10,10 @@
  */
 class Solution {
 public:
-    ListNode* removeNodes(ListNode* head) {
+    ListNode*reverse(ListNode*head){
+        if(head==nullptr){
+            return nullptr;
+        }
         ListNode*curr = head;
         ListNode*next=head;
         ListNode*prev=nullptr;
@@ -19,35 +22,28 @@ public:
             curr->next = prev;
             prev=curr;
             curr=next;
-
         }
-        stack<int>st;
-        ListNode*temp=prev;
-        while(temp!=nullptr){
-            if(!st.empty()){
-                if(st.top()<=temp->val){
-                    st.push(temp->val);
-                }
+        return prev;
+
+    };
+    ListNode* removeNodes(ListNode* head) {
+        if(head==nullptr){
+            return nullptr;
+        }
+        head = reverse(head);
+        ListNode*curr = head;
+        while(curr!=nullptr && curr->next!=nullptr){
+            if(curr->val>curr->next->val){
+                curr->next= curr->next->next;
             }
             else{
-                st.push(temp->val);
+                curr=curr->next;
             }
-            temp=temp->next;
         }
-        if(st.empty()){
-            return head;
-        }
-        ListNode*newnode = new ListNode(st.top());
-        ListNode*startnode = newnode;
-        st.pop();
-        while(!st.empty()){
-            ListNode*node = new ListNode(st.top());
-            newnode->next = node;
-            st.pop();
-            newnode= newnode->next;
+        return reverse(head);
 
-        }
-        return startnode;
-       
+      
+    
+        
     }
 };
