@@ -6,10 +6,10 @@ public:
         unordered_map<int,int>freq;
         int i=0;
         for(int j=0;j<s.size();j++){
-            freq[s[j]-'a']++;
-            max_freq = max(max_freq,freq[s[j]-'a']);
-            if((j-i+1)-max_freq>k){
-                freq[s[i]-'a']--;
+            freq[s[j]-'A']++;
+            max_freq = max(max_freq,freq[s[j]-'A']);
+            while((j-i+1)-max_freq>k){
+                freq[s[i]-'A']--;
                 i++;
             }
             max_val= max(max_val,j-i+1);
