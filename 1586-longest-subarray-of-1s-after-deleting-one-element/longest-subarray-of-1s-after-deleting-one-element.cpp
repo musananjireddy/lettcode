@@ -1,9 +1,9 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int n= nums.size();
-        int ans=0;
+        int n = nums.size();
         int i=0;
+        int max_val =0;
         int zero=0;
         for(int j=0;j<n;j++){
             if(nums[j]==0){
@@ -15,9 +15,9 @@ public:
                 }
                 i++;
             }
-            ans = max(ans,j-i);
+            max_val = max(max_val,j-i);
+
         }
-        return ans;
-        
+        return max_val;
     }
 };
