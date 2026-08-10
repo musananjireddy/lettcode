@@ -1,8 +1,8 @@
 class RecentCounter {
 public:
+
     queue<int>q;
     RecentCounter() {
-
         
     }
     
@@ -12,7 +12,6 @@ public:
             q.pop();
         }
         return q.size();
-        
     }
 };
 
