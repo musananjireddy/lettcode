@@ -17,15 +17,16 @@ public:
             }
 
         }
+        nums = temp;
          for(int i=1;i<n;i++){
-            if(temp[i-1]>temp[i]){
-                temp[i]=temp[i-1];
+            if(nums[i-1]>nums[i]){
+                nums[i]=nums[i-1];
                 break;
             }
         }
         bool round=true;
         for(int i=1;i<n;i++){
-            if(temp[i-1]>temp[i]){
+            if(nums[i-1]>nums[i]){
                 round = false;
             }
         }
