@@ -8,7 +8,7 @@ public:
             for(int j=i;j<n;j++){
                 sum+=nums[j];
                 int len = j-i+1;
-                if(len>=l && len<=r && sum>0){
+                if(sum>0 &&len>=l && len<=r){
                     min_val= min(min_val,sum);
                 }
             }
