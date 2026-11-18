@@ -8,27 +8,22 @@ public:
             int sum=0;
             for(int i=0;i<s.size();i++){
                 st+=s[i];
-                int x = s[i]-'0';
+                int x= s[i]-'0';
                 sum+=x;
                 if(st.size()==k){
                     a+=to_string(sum);
                     st="";
                     sum=0;
+                }
+
             }
-        }
-          if(st.size() > 0) {
-                a += to_string(sum);
+            if(st.size()>0){
+                a+=to_string(sum);
             }
-            
-            s = a;
-        
-           
+            s=a;
 
         }
         return s;
-
-        
-
         
     }
 };
