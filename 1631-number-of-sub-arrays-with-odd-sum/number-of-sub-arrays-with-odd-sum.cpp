@@ -5,18 +5,19 @@ public:
         int odd=0;
         int even=1;
         int sum=0;
-        long long  ans=0;
+        int   ans=0;
+        const int MOD = 1000000007;
         for(int i=0;i<n;i++){
             sum+=arr[i];
             if(sum%2==0){
                 even++;
-                ans+=odd;
+                ans=(ans+odd)%MOD;
             }
             else{
                 odd++;
-                ans+=even;
+                ans=(ans+even)%MOD;
             }
         }
-        return ans%1000000007;
+        return ans;
     }
 };
