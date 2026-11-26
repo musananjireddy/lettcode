@@ -4,23 +4,18 @@ public:
         int n = nums.size();
         int cnt=0;
         for(int i=0;i<n;i++){
+            int min_val= nums[i];
+            int bit = nums[i];
             for(int j=i;j<n;j++){
-                vector<int>arr;
-                int bit=nums[i];
-                for(int k=i;k<=j;k++){
-                    arr.push_back(nums[k]);
-                    if(k>i){
-                        bit = (bit&nums[k]);
-                    }
-                    
-                }
-                int min_val = *min_element(arr.begin(),arr.end());
-                if(min_val==bit){
+                bit = (bit&nums[j]);
+                min_val = min(min_val,nums[j]);
+                if(min_val == bit){
                     cnt++;
                 }
             }
         }
-        return cnt;
+            return cnt;
+               
 
 
         
