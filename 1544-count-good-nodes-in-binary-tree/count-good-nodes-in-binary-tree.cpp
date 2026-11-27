@@ -25,11 +25,11 @@ public:
                     cnt++;
                 }
                 int new_max_val = max(max_val,curr->val);
-                if(curr->right!=NULL){
-                    st.push({curr->right,new_max_val});
-                }
                 if(curr->left!=NULL){
                     st.push({curr->left,new_max_val});
+                }
+                if(curr->right!=NULL){
+                    st.push({curr->right,new_max_val});
                 }
             
             
