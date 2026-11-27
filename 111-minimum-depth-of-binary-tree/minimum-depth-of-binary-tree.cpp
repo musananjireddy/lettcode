@@ -30,7 +30,7 @@ public:
         int cnt=0;
         slove(root,min_val,cnt,cnt1);
         if(min_val==INT_MAX){
-            return cnt1;
+            return cnt;
         }
         return min_val;
         
