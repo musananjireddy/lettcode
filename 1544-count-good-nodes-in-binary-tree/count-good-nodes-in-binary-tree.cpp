@@ -11,31 +11,21 @@
  */
 class Solution {
 public:
+    void slove(TreeNode*root,int &cnt,int max_val){
+        if(root==NULL){
+            return;
+        }
+        if(root->val>=max_val){
+            cnt++;
+        }
+        max_val = max(max_val,root->val);
+        slove(root->left,cnt,max_val);
+        slove(root->right,cnt,max_val);
+    }
     int goodNodes(TreeNode* root) {
         int cnt=0;
-       
-        stack<pair<TreeNode*,int>>st;
-        st.push({root,root->val});
-        while(!st.empty()){
-           
-                TreeNode*curr = st.top().first;
-                int max_val = st.top().second;
-                st.pop();
-                if(curr->val>=max_val){
-                    cnt++;
-                }
-                int new_max_val = max(max_val,curr->val);
-                if(curr->left!=NULL){
-                    st.push({curr->left,new_max_val});
-                }
-                if(curr->right!=NULL){
-                    st.push({curr->right,new_max_val});
-                }
-            
-            
-        }
-        return cnt;
+        int max_val = root->val;
+        slove(root,cnt,max_val);
+        return  cnt;
     }
-
-
 };
